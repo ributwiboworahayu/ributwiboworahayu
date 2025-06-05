@@ -1,217 +1,363 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ribut Wibowo Rahayu - FullStack Developer</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        .hero {
-            position: relative;
-            background: url('https://wallpapers.com/images/hd/water-background-ye0s8kgan03ggvpg.jpg') no-repeat center center;
-            background-size: cover;
-            color: #fff;
-            padding: 100px 0;
-            overflow: hidden;
-        }
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5); /* Gelap dengan transparansi */
-            filter: blur(5px); /* Efek blur */
-            z-index: 0;
-        }
-        .hero .container {
-            position: relative;
-            z-index: 1;
-        }
-        .hero h1 {
-            font-size: 3rem;
-        }
-        .section {
-            padding: 60px 0;
-        }
-        .section.bg-light {
-            background-color: #f8f9fa;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ribut Wibowo Rahayu - FullStack Developer</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<style>
+:root {
+--primary-color: #007bff;
+--secondary-color: #6c757d;
+--light-bg: #f8f9fa;
+--dark-text: #343a40;
+--white: #fff;
+--box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+--transition: all 0.3s ease-in-out;
+}
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: var(--dark-text);
+        line-height: 1.6;
+    }
+
+    .navbar {
+        background-color: var(--white) !important;
+        box-shadow: var(--box-shadow);
+    }
+
+    .navbar-brand {
+        font-weight: bold;
+        font-size: 1.5rem;
+        color: var(--primary-color);
+    }
+
+    .navbar-nav .nav-link {
+        color: var(--secondary-color);
+        margin-left: 15px;
+        transition: var(--transition);
+    }
+
+    .navbar-nav .nav-link:hover {
+        color: var(--primary-color);
+    }
+
+    .hero {
+        position: relative;
+        background: linear-gradient(135deg, var(--primary-color) 0%, #0056b3 100%);
+        color: var(--white);
+        padding: 150px 0;
+        text-align: center;
+        overflow: hidden;
+    }
+
+    .hero-content {
+        position: relative;
+        z-index: 1;
+    }
+
+    .hero h1 {
+        font-size: 3.5rem;
+        font-weight: bold;
+        margin-bottom: 15px;
+    }
+
+    .hero p.lead {
+        font-size: 1.2rem;
+        color: rgba(255, 255, 255, 0.8);
+    }
+
+    .hero-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.3);
+    }
+
+    .section {
+        padding: 80px 0;
+    }
+
+    .section-title {
+        text-align: center;
+        margin-bottom: 50px;
+        font-size: 2.5rem;
+        font-weight: bold;
+        color: var(--dark-text);
+    }
+
+    #about .row {
+        align-items: center;
+    }
+
+    #about .col-md-4 {
+        text-align: center;
+    }
+
+    #about img {
+        width: 150px;
+        height: 150px;
+        object-fit: cover;
+        box-shadow: var(--box-shadow);
+        margin-bottom: 20px;
+    }
+
+    #about h2 {
+        font-size: 2rem;
+        color: var(--primary-color);
+        margin-bottom: 10px;
+    }
+
+    #about h4 {
+        margin-top: 20px;
+        color: var(--secondary-color);
+    }
+
+    #portfolio .card {
+        border: none;
+        box-shadow: var(--box-shadow);
+        border-radius: 10px;
+        overflow: hidden;
+        transition: transform 0.3s ease-in-out;
+    }
+
+    #portfolio .card:hover {
+        transform: translateY(-5px);
+    }
+
+    #portfolio .card-img-top {
+        height: 200px;
+        object-fit: cover;
+    }
+
+    #portfolio .card-body {
+        padding: 20px;
+    }
+
+    #portfolio .card-title {
+        font-size: 1.2rem;
+        font-weight: bold;
+        color: var(--dark-text);
+        margin-bottom: 10px;
+    }
+
+    #portfolio .card-text {
+        color: var(--secondary-color);
+        font-size: 0.9rem;
+    }
+
+    #skills .row > div {
+        margin-bottom: 30px;
+    }
+
+    #skills h4 {
+        color: var(--primary-color);
+        margin-bottom: 15px;
+    }
+
+    #skills ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    #skills ul li {
+        margin-bottom: 8px;
+        color: var(--secondary-color);
+    }
+
+    #contact ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    #contact ul li {
+        margin-bottom: 15px;
+        font-size: 1rem;
+    }
+
+    #contact ul li a {
+        color: var(--primary-color);
+        text-decoration: none;
+        transition: color var(--transition);
+    }
+
+    #contact ul li a:hover {
+        color: #0056b3;
+    }
+
+    .bg-light {
+        background-color: var(--light-bg) !important;
+    }
+</style>
+
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+<nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+<div class="container">
+<a class="navbar-brand" href="#">Portofolio</a>
+<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+<span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="navbarNav">
+<ul class="navbar-nav ms-auto">
+<li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+<li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+<li class="nav-item"><a class="nav-link" href="#portfolio">Portfolio</a></li>
+<li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+<li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
+<li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+</ul>
+</div>
+</div>
+</nav>
+<main>
+    <section id="home" class="hero">
+        <div class="hero-overlay"></div>
+        <div class="container hero-content">
+            <h1>Ribut Wibowo Rahayu</h1>
+            <p class="lead">FullStack Developer</p>
+        </div>
+    </section>
+
+    <section id="about" class="section">
         <div class="container">
-            <a class="navbar-brand" href="#">Portofolio</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#portfolio">Portfolio</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-                </ul>
+            <h2 class="section-title">Tentang Saya</h2>
+            <div class="row">
+                <div class="col-md-4 text-center">
+                    <img src="[https://avatars.githubusercontent.com/u/67566260?v=4](https://avatars.githubusercontent.com/u/67566260?v=4)" alt="Ribut Wibowo Rahayu" class="img-fluid rounded-circle">
+                </div>
+                <div class="col-md-8">
+                    <h2>Halo!</h2>
+                    <p>Saya adalah seorang pengembang perangkat lunak yang berpengalaman dalam pengembangan aplikasi web dan mobile, dengan fokus pada backend menggunakan Laravel dan pengembangan frontend menggunakan teknologi modern. Dengan rekam jejak yang terbukti dalam menyelesaikan proyek yang kompleks dan kemampuan untuk beradaptasi dengan cepat pada teknologi baru, saya berkomitmen untuk memberikan solusi yang efisien dan berkualitas tinggi.</p>
+                    <h4>Pendidikan</h4>
+                    <ul>
+                        <li>D3 – Informatika, Kampar Polytechnic (2019 - 2022)</li>
+                        <li>Menguasai bahasa pemrograman C, sistem manajemen basis data, dan pengembangan web.</li>
+                    </ul>
+                </div>
             </div>
         </div>
-    </nav>
+    </section>
 
-    <main>
-        <!-- Home Section -->
-        <section id="home" class="hero text-center text-white">
-            <div class="container">
-                <h1>Ribut Wibowo Rahayu</h1>
-                <p class="lead">FullStack Developer</p>
-            </div>
-        </section>
-
-        <!-- About Section -->
-        <section id="about" class="section">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-4 text-center">
-                        <img src="https://avatars.githubusercontent.com/u/67566260?v=4" alt="Ribut Wibowo Rahayu" class="img-fluid rounded-circle">
-                    </div>
-                    <div class="col-md-8">
-                        <h2>Tentang Saya</h2>
-                        <p>Saya adalah seorang pengembang perangkat lunak yang berpengalaman dalam pengembangan aplikasi web dan mobile, dengan fokus pada backend menggunakan Laravel dan pengembangan frontend menggunakan teknologi modern. Dengan rekam jejak yang terbukti dalam menyelesaikan proyek yang kompleks dan kemampuan untuk beradaptasi dengan cepat pada teknologi baru, saya berkomitmen untuk memberikan solusi yang efisien dan berkualitas tinggi.</p>
-                        <h4>Pendidikan</h4>
-                        <ul>
-                            <li>D3 – Informatika, Kampar Polytechnic (2019 - 2022)</li>
-                            <li>Menguasai bahasa pemrograman C, sistem manajemen basis data, dan pengembangan web.</li>
-                        </ul>
+    <section id="portfolio" class="section bg-light">
+        <div class="container">
+            <h2 class="section-title">Portofolio</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="[https://via.placeholder.com/400x300?text=SIAK](https://via.placeholder.com/400x300?text=SIAK)" class="card-img-top" alt="Sistem Informasi Akademik Kampus">
+                        <div class="card-body">
+                            <h5 class="card-title">Sistem Informasi Akademik Kampus</h5>
+                            <p class="card-text">Sistem untuk mengelola data mahasiswa, dosen, dan kurikulum menggunakan Laravel dan MySQL.</p>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </section>
-
-        <!-- Portfolio Section -->
-        <section id="portfolio" class="section bg-light">
-            <div class="container">
-                <h2>Portofolio</h2>
-                <div class="row">
-                    <!-- Proyek 1 -->
-                    <div class="col-md-4 mb-3">
-                        <div class="card">
-                            <img src="https://laravel.com/img/logomark.min.svg" class="card-img-top" alt="Sistem Informasi Akademik Kampus">
-                            <div class="card-body">
-                                <h5 class="card-title">Sistem Informasi Akademik Kampus</h5>
-                                <p class="card-text">Sistem untuk mengelola data mahasiswa, dosen, dan kurikulum menggunakan Laravel dan MySQL.</p>
-                            </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="[https://via.placeholder.com/400x300?text=IDAMAN](https://via.placeholder.com/400x300?text=IDAMAN)" class="card-img-top" alt="IDAMAN (Aplikasi Pemilih Pemilu)">
+                        <div class="card-body">
+                            <h5 class="card-title">IDAMAN (Aplikasi Pemilih Pemilu)</h5>
+                            <p class="card-text">Aplikasi untuk menghitung jumlah pemilih dalam Pemilu menggunakan Laravel dan PostgreSQL.</p>
                         </div>
                     </div>
-                    <!-- Proyek 2 -->
-                    <div class="col-md-4 mb-3">
-                        <div class="card">
-                            <img src="https://laravel.com/img/logomark.min.svg" class="card-img-top" alt="IDAMAN (Aplikasi Pemilih Pemilu)">
-                            <div class="card-body">
-                                <h5 class="card-title">IDAMAN (Aplikasi Pemilih Pemilu)</h5>
-                                <p class="card-text">Aplikasi untuk menghitung jumlah pemilih dalam Pemilu menggunakan Laravel dan PostgreSQL.</p>
-                            </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="[https://via.placeholder.com/400x300?text=RME](https://via.placeholder.com/400x300?text=RME)" class="card-img-top" alt="RME (Rekam Medis Elektronik)">
+                        <div class="card-body">
+                            <h5 class="card-title">RME (Rekam Medis Elektronik)</h5>
+                            <p class="card-text">Platform untuk penyimpanan dan pengelolaan rekam medis pasien menggunakan Laravel dan PostgreSQL.</p>
                         </div>
                     </div>
-                    <!-- Proyek 3 -->
-                    <div class="col-md-4 mb-3">
-                        <div class="card">
-                            <img src="https://laravel.com/img/logomark.min.svg" class="card-img-top" alt="RME (Rekam Medis Elektronik)">
-                            <div class="card-body">
-                                <h5 class="card-title">RME (Rekam Medis Elektronik)</h5>
-                                <p class="card-text">Platform untuk penyimpanan dan pengelolaan rekam medis pasien menggunakan Laravel dan PostgreSQL.</p>
-                            </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="[https://via.placeholder.com/400x300?text=Telemedicine](https://via.placeholder.com/400x300?text=Telemedicine)" class="card-img-top" alt="Aplikasi Telemedicine">
+                        <div class="card-body">
+                            <h5 class="card-title">Aplikasi Telemedicine</h5>
+                            <p class="card-text">Aplikasi yang memungkinkan konsultasi dokter secara online menggunakan Laravel dan Flutter.</p>
                         </div>
                     </div>
-                    <!-- Proyek 4 -->
-                    <div class="col-md-4 mb-3">
-                        <div class="card">
-                            <img src="https://laravel.com/img/logomark.min.svg" class="card-img-top" alt="Aplikasi Telemedicine">
-                            <div class="card-body">
-                                <h5 class="card-title">Aplikasi Telemedicine</h5>
-                                <p class="card-text">Aplikasi yang memungkinkan konsultasi dokter secara online menggunakan Laravel dan Flutter.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Proyek 5 -->
-                    <div class="col-md-4 mb-3">
-                        <div class="card">
-                            <img src="https://laravel.com/img/logomark.min.svg" class="card-img-top" alt="Manajemen Limbah B3">
-                            <div class="card-body">
-                                <h5 class="card-title">Manajemen Limbah B3</h5>
-                                <p class="card-text">Sistem untuk pengelolaan limbah berbahaya dan beracun menggunakan Laravel dan MySQL.</p>
-                            </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="[https://via.placeholder.com/400x300?text=Limbah+B3](https://via.placeholder.com/400x300?text=Limbah+B3)" class="card-img-top" alt="Manajemen Limbah B3">
+                        <div class="card-body">
+                            <h5 class="card-title">Manajemen Limbah B3</h5>
+                            <p class="card-text">Sistem untuk pengelolaan limbah berbahaya dan beracun menggunakan Laravel dan MySQL.</p>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Skills Section -->
-        <section id="skills" class="section">
-            <div class="container">
-                <h2>Keahlian</h2>
-                <div class="row">
-                    <div class="col-md-6">
-                        <h4>Bahasa Pemrograman</h4>
-                        <ul>
-                            <li>PHP</li>
-                            <li>Go</li>
-                            <li>JavaScript</li>
-                            <li>SQL</li>
-                            <li>C</li>
-                        </ul>
-                    </div>
-                    <div class="col-md-6">
-                        <h4>Framework</h4>
-                        <ul>
-                            <li>Laravel</li>
-                            <li>CodeIgniter</li>
-                            <li>Vue.js</li>
-                            <li>Flutter</li>
-                        </ul>
-                        <h4>Database</h4>
-                        <ul>
-                            <li>MySQL</li>
-                            <li>PostgreSQL</li>
-                        </ul>
-                        <h4>Pengembangan API</h4>
-                        <ul>
-                            <li>REST API</li>
-                            <li>Integrasi API Pihak Ketiga</li>
-                        </ul>
-                        <h4>Teknologi Frontend</h4>
-                        <ul>
-                            <li>jQuery</li>
-                            <li>Bootstrap</li>
-                            <li>HTML/CSS</li>
-                        </ul>
-                        <h4>DevOps</h4>
-                        <ul>
-                            <li>GitFlow</li>
-                            <li>Nginx</li>
-                            <li>Agile Methodology</li>
-                        </ul>
-                    </div>
+    <section id="skills" class="section">
+        <div class="container">
+            <h2 class="section-title">Keahlian</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <h4>Bahasa Pemrograman</h4>
+                    <ul>
+                        <li><i class="fab fa-php"></i> PHP</li>
+                        <li><i class="fa-brands fa-golang"></i> Go</li>
+                        <li><i class="fab fa-js"></i> JavaScript</li>
+                        <li><i class="fas fa-database"></i> SQL</li>
+                        <li><i class="fas fa-code"></i> C</li>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <h4>Framework</h4>
+                    <ul>
+                        <li><i class="fab fa-laravel"></i> Laravel</li>
+                        <li><i class="fas fa-fire-code"></i> CodeIgniter</li>
+                        <li><i class="fab fa-vuejs"></i> Vue.js</li>
+                        <li><i class="fab fa-android"></i> Flutter</li>
+                    </ul>
+                    <h4>Database</h4>
+                    <ul>
+                        <li><i class="fas fa-database"></i> MySQL</li>
+                        <li><i class="fas fa-database"></i> PostgreSQL</li>
+                    </ul>
+                    <h4>Pengembangan API</h4>
+                    <ul>
+                        <li><i class="fas fa-exchange-alt"></i> REST API</li>
+                        <li><i class="fas fa-plug"></i> Integrasi API Pihak Ketiga</li>
+                    </ul>
+                    <h4>Teknologi Frontend</h4>
+                    <ul>
+                        <li><i class="fab fa-js-square"></i> jQuery</li>
+                        <li><i class="fab fa-bootstrap"></i> Bootstrap</li>
+                        <li><i class="fab fa-html5"></i> HTML5 / <i class="fab fa-css3-alt"></i> CSS3</li>
+                    </ul>
+                    <h4>DevOps</h4>
+                    <ul>
+                        <li><i class="fas fa-code-branch"></i> GitFlow</li>
+                        <li><i class="fab fa-linux"></i> Nginx</li>
+                        <li><i class="fas fa-tasks"></i> Agile Methodology</li>
+                    </ul>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Contact Section -->
-        <section id="contact" class="section">
-            <div class="container">
-                <h2>Kontak</h2>
-                <ul>
-                    <li>Email: rahayuributwibowo@gmail.com</li>
-                    <li>GitHub: <a href="https://github.com/ributwiboworahayu">github.com/ributwiboworahayu</a></li>
-                    <li>LinkedIn: <a href="https://www.linkedin.com/in/ribut-wibowo-rahayu-603811250">linkedin.com/in/ribut-wibowo-rahayu</a></li>
-                    <li>Telepon: +6285172441544</li>
-                </ul>
-            </div>
-        </section>
-    </main>
+    <section id="contact" class="section bg-light">
+        <div class="container">
+            <h2 class="section-title">Kontak</h2>
+            <ul>
+                <li><i class="fas fa-envelope"></i> Email: <a href="mailto:rahayuributwibowo@gmail.com">rahayuributwibowo@gmail.com</a></li>
+                <li><i class="fab fa-github"></i> GitHub: <a href="[https://github.com/ributwiboworahayu](https://github.com/ributwiboworahayu)" target="_blank">[github.com/ributwiboworahayu](https://github.com/ributwiboworahayu)</a></li>
+                <li><i class="fab fa-linkedin"></i> LinkedIn: <a href="[https://www.linkedin.com/in/ribut-wibowo-rahayu-603811250](https://www.linkedin.com/in/ribut-wibowo-rahayu-603811250)" target="_blank">[linkedin.com/in/ribut-wibowo-rahayu](https://linkedin.com/in/ribut-wibowo-rahayu)</a></li>
+                <li><i class="fas fa-phone"></i> Telepon: +6285172441544</li>
+            </ul>
+        </div>
+    </section>
+</main>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="[https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js](https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js)"></script>
+
 </body>
 </html>
